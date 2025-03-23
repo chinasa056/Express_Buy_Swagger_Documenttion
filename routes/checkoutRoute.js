@@ -5,7 +5,7 @@ const router = require("express").Router()
 
 /**
  * @swagger
- * /payment/initialize:
+ * /api/v1/payment/initialize:
  *   post:
  *     summary: Initialize payment using an external payment gateway
  *     description: This endpoint initializes a payment using the Paystack API. It sends the cart's grand total and user email to the Paystack API, which returns an authorization URL for the payment and a payment reference. The reference is stored in the database for future verification.
@@ -46,7 +46,7 @@ const router = require("express").Router()
  *                     email:
  *                       type: string
  *                       description: User's email address
- *                       example: user@example.com
+ *                       example: user@gmail.com
  *                     reference:
  *                       type: string
  *                       description: Unique payment reference
@@ -83,7 +83,7 @@ router.post("/payment/initialize", authenticate, initializePyment)
 
 /**
  * @swagger
- * /checkout:
+ * /api/v1/checkout:
  *   post:
  *     summary: Process checkout after payment verification
  *     description: This endpoint verifies the payment status using the Paystack API. If the payment is successful, it saves the checkout details in the database, clears the cart, and updates the payment status. If the payment fails, the status is updated accordingly.

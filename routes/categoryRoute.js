@@ -5,7 +5,7 @@ const router = require("express").Router()
 
 /**
  * @swagger
- * /category:
+ * /api/v1/category:
  *   post:
  *     summary: Create a new category
  *     security:
@@ -77,7 +77,7 @@ router.post("/category", authenticate, createCategory);
 
 /**
  * @swagger
- * /allCategories:
+ * /api/v1/allCategories:
  *   get:
  *     summary: Retrieve all categories
  *     security:
@@ -128,7 +128,7 @@ router.get("/allCategories", authenticate, getAllCategoryy)
 
 /**
  * @swagger
- * /category/{categoryId}:
+ * /api/v1/category/{categoryId}:
  *   get:
  *     summary: Retrieve a single category by ID and associated proucts
  *     security:

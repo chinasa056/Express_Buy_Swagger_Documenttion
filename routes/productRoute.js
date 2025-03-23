@@ -7,7 +7,7 @@ const upload = require("../utils/multer.js")
 
 /**
  * @swagger
- * /product/{categoryId}:
+ * /api/v1/product/{categoryId}:
  *   post:
  *     summary: create a new product,Add a new product under a specific category
  *     security:
@@ -110,7 +110,7 @@ router.post("/product/:categoryId", adminAuth, upload.single("productImage"),add
 
 /**
  * @swagger
- * /allProducts:
+ * /api/v1/allProducts:
  *   get:
  *     summary: Retrieve all products
  *     security:
@@ -177,7 +177,7 @@ router.get("/allProducts", authenticate, upload.single("productImage"),getAllPro
 
 /**
  * @swagger
- * /product/{productId}:
+ * /api/v1/product/{productId}:
  *   get:
  *     summary: Retrieve a single product by its ID
  *     security:
@@ -261,7 +261,7 @@ router.get("/product/:productId", authenticate, upload.single("productImage"),ge
 
 /**
  * @swagger
- * /product/delete/{productId}/{categoryId}:
+ * /api/v1/product/delete/{productId}/{categoryId}:
  *   delete:
  *     summary: Delete a product and remove its association with a category
  *     security:
