@@ -31,7 +31,7 @@ const options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'BASE_URL:https://express-buy-swagger-documenttion.onrender.com/api/v1',
+      title: 'BASE_URL:https://express-buy-swagger-documenttion.onrender.com',
       version: '1.0.0',
     },
     components: {
@@ -49,7 +49,7 @@ const options = {
 };
 
 const openapiSpecification = swaggerJsdoc(options);
-app.use("api/v1/documentation", swagger_UI.serve, swagger_UI.setup(openapiSpecification))
+app.use("/documentation", swagger_UI.serve, swagger_UI.setup(openapiSpecification))
 
 app.listen(PORT, () => {
   console.log(`server is listening to port: ${PORT}`);
