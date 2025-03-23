@@ -49,7 +49,7 @@ const options = {
 };
 
 const openapiSpecification = swaggerJsdoc(options);
-app.use("/documentation", swagger_UI.serve, swagger_UI.setup(openapiSpecification))
+app.use("api/v1/documentation", swagger_UI.serve, swagger_UI.setup(openapiSpecification))
 
 app.listen(PORT, () => {
   console.log(`server is listening to port: ${PORT}`);
