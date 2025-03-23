@@ -7,7 +7,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /admin/register:
+ * /api/v1/admin/register:
  *   post:
  *     summary: Register a new admin
  *     requestBody:
@@ -80,7 +80,7 @@ router.post("/admin/register", registerUserValidator, registerAdmin)
 
 /**
  * @swagger
- * /admin:
+ * /api/v1/admin:
  *   post:
  *     summary: Register an admin with authentication
  *     requestBody:
@@ -153,7 +153,7 @@ router.post("/admin",adminAuth, registerAdmin)
 
 /**
  * @swagger
- * /register:
+ * /api/v1/register:
  *   post:
  *     summary: Register a new user
  *     requestBody:
@@ -222,7 +222,7 @@ router.post('/register',registerUserValidator,registerUser);
 
 /**
  * @swagger
- * /login:
+ * /api/v1/login:
  *   post:
  *     summary: User login
  *     requestBody:
@@ -296,7 +296,7 @@ router.post('/login',loginValidator, loginUser);
 
 /**
  * @swagger
- * /verify/user/{token}:
+ * /api/v1/verify/user/{token}:
  *   get:
  *     summary: Verify user account using a token
  *     parameters:
@@ -357,7 +357,7 @@ router.get('/verify/user/:token', verifyUser);
 
 /**
  * @swagger
- * /forgot_password/user:
+ * /api/v1/forgot_password/user:
  *   post:
  *     summary: Initiate password reset
  *     requestBody:
@@ -411,7 +411,7 @@ router.post('/forgot_password/user', forgotPassword);
 
 /**
  * @swagger
- * /reset_password/user/{token}:
+ * /api/v1/reset_password/user/{token}:
  *   post:
  *     summary: Reset user password using a token
  *     parameters:
