@@ -31,8 +31,7 @@ const options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'BASE_URL:https://localhost:5654/api/v1',
-      //  https://swagger-app.onrender.com',
+      title: 'BASE_URL:https://express-buy-swagger-documenttion.onrender.com/api/v1',
       version: '1.0.0',
     },
     components: {
