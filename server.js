@@ -31,8 +31,16 @@ const options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'BASE_URL:https://express-buy-swagger-documenttion.onrender.com',
+      title: "Express Buy Documentation",
       version: '1.0.0',
+      description: "Documentation for Express Buy E-commerce app",
+      license: {
+        name: 'BASE_URL:https://express-buy-swagger-documenttion.onrender.com',
+      },
+      contact: {
+        name: "Chinasa Acha",
+        // url: "ddjdjhdggdgdg"
+      }
     },
     components: {
       securitySchemes: {
@@ -43,7 +51,18 @@ const options = {
         }
       }
     }, 
-    security: [{ BearerAuth: [] }]
+    security: [{ BearerAuth: [] }],
+    servers: [
+      {
+        url: "https://express-buy-swagger-documenttion.onrender.com",
+        description: "Production Server"
+      },
+      {
+        url: "http://localhost:5566",
+        description: "Development Server"
+      }
+    ],
+    
   },
   apis: ["./routes/*.js"] // Ensure this points to the correct path
 };

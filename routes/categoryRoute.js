@@ -2,12 +2,19 @@ const { createCategory, getAllCategoryy, getOneCategory } = require("../controll
 const { authenticate } = require("../middleware/authentication")
 
 const router = require("express").Router()
+/**
+ * @swagger
+ * tags:
+ *   name: category
+ *   description: endpoints relating to ategories
+ */
 
 /**
  * @swagger
  * /api/v1/category:
  *   post:
  *     summary: Create a new category
+ *     tags: [category]
  *     security:
  *       - bearerAuth: [] # Authentication required via a bearer token
  *     requestBody:
@@ -80,6 +87,7 @@ router.post("/category", authenticate, createCategory);
  * /api/v1/allCategories:
  *   get:
  *     summary: Retrieve all categories
+ *     tags: [category]
  *     security:
  *       - bearerAuth: [] # Authentication required via a bearer token
  *     responses:
@@ -131,6 +139,7 @@ router.get("/allCategories", authenticate, getAllCategoryy)
  * /api/v1/category/{categoryId}:
  *   get:
  *     summary: Retrieve a single category by ID and associated proucts
+ *     tags: [category]
  *     security:
  *       - bearerAuth: [] # Authentication required via a bearer token
  *     parameters:

@@ -4,12 +4,19 @@ const { authenticate, adminAuth } = require("../middleware/authentication.js")
 const router = require("express").Router()
 
 const upload = require("../utils/multer.js")
+/**
+ * @swagger
+ * tags:
+ *   name: products
+ *   description: endpoints relating to ategories
+ */
 
 /**
  * @swagger
  * /api/v1/product/{categoryId}:
  *   post:
  *     summary: create a new product,Add a new product under a specific category
+ *     tags: [products]
  *     security:
  *       - bearerAuth: [] # Requires admin authorization 
  *     parameters:
@@ -113,6 +120,7 @@ router.post("/product/:categoryId", adminAuth, upload.single("productImage"),add
  * /api/v1/allProducts:
  *   get:
  *     summary: Retrieve all products
+ *     tags: [products]
  *     security:
  *       - bearerAuth: [] # Requires authentication via token
  *     responses:
@@ -180,6 +188,7 @@ router.get("/allProducts", authenticate, upload.single("productImage"),getAllPro
  * /api/v1/product/{productId}:
  *   get:
  *     summary: Retrieve a single product by its ID
+ *     tags: [products]
  *     security:
  *       - bearerAuth: [] # Requires authentication via token
  *     parameters:
@@ -264,6 +273,7 @@ router.get("/product/:productId", authenticate, upload.single("productImage"),ge
  * /api/v1/product/delete/{productId}/{categoryId}:
  *   delete:
  *     summary: Delete a product and remove its association with a category
+ *     tags: [products]
  *     security:
  *       - bearerAuth: [] # Requires admin authorization
  *     parameters:

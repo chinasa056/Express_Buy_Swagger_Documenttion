@@ -2,6 +2,12 @@ const { initializePyment, checkout } = require("../controllers/checkoutControlle
 const { authenticate } = require("../middleware/authentication")
 
 const router = require("express").Router()
+/**
+ * @swagger
+ * tags:
+ *   name: Checkout
+ *   description: endpoints to checkout, payment integration and verification
+ */
 
 /**
  * @swagger
@@ -9,6 +15,7 @@ const router = require("express").Router()
  *   post:
  *     summary: Initialize payment using an external payment gateway
  *     description: This endpoint initializes a payment using the Paystack API. It sends the cart's grand total and user email to the Paystack API, which returns an authorization URL for the payment and a payment reference. The reference is stored in the database for future verification.
+ *     tags: [Checkout]
  *     security:
  *       - bearerAuth: [] # Authentication required vai token
  *     responses:
@@ -87,6 +94,7 @@ router.post("/payment/initialize", authenticate, initializePyment)
  *   post:
  *     summary: Process checkout after payment verification
  *     description: This endpoint verifies the payment status using the Paystack API. If the payment is successful, it saves the checkout details in the database, clears the cart, and updates the payment status. If the payment fails, the status is updated accordingly.
+ *     tags: [Checkout]
  *     security:
  *       - bearerAuth: [] # Authentication required
  *     parameters:

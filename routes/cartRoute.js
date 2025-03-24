@@ -2,6 +2,12 @@ const { addToCart, getcart, reduceProductQuantity, clearCart, deleteProductFromC
 const { authenticate } = require("../middleware/authentication");
 
 const router = require("express").Router()
+/**
+ * @swagger
+ * tags:
+ *   name: Cart
+ *   description: endpoints relating to Cart functionalities
+ */
 
 
 /**
@@ -10,6 +16,7 @@ const router = require("express").Router()
  *   post:
  *     summary: Add a product to the user's cart
  *     description: This endpoint allows authenticated users to add a specific product to their cart. If the product already exists in the cart, its quantity is increased, and the total price is updated. If the cart does not exist, a new cart is created.
+ *     tags: [Cart]
  *     security:
  *       - bearerAuth: [] # Authentication required via token
  *     parameters:
@@ -94,6 +101,7 @@ router.post("/cart/:productId", authenticate, addToCart);
  *   get:
  *     summary: Retrieve all carts
  *     description: This endpoint retrieves a list of all carts in the database, including the products in each cart and the grand total for each user.
+ *     tags: [Cart]
  *     security:
  *       - bearerAuth: [] # Authentication required via token
  *     responses:
@@ -165,6 +173,7 @@ router.get("/allCart", authenticate, getcart)
  *   patch:
  *     summary: Reduce the quantity of a product in the cart
  *     description: This endpoint allows authenticated users to reduce the quantity of a specific product in their cart. If the quantity becomes 0, the product is removed from the cart. The cart’s grand total is updated accordingly.
+ *     tags: [Cart]
  *     security:
  *       - bearerAuth: [] # Authentication required
  *     parameters:
@@ -245,6 +254,7 @@ router.patch("/cart/reduce/:productId", authenticate, reduceProductQuantity)
  *   delete:
  *     summary: Delete a specific product from the cart
  *     description: This endpoint allows authenticated users to remove a specific product from their cart entirely. The cart’s grand total is updated accordingly.
+ *     tags: [Cart]
  *     security:
  *       - bearerAuth: [] # Authentication required
  *     parameters:
@@ -325,6 +335,7 @@ router.delete("/cart/delete/:productId", authenticate, deleteProductFromCart)
  *   delete:
  *     summary: Clear all products in the user's cart
  *     description: This endpoint allows authenticated users to clear their cart entirely, removing all products and resetting the grand total to 0.
+ *     tags: [Cart]
  *     security:
  *       - bearerAuth: [] # Authentication required
  *     responses:

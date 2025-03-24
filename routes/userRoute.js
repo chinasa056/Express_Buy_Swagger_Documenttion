@@ -4,12 +4,19 @@ const { authenticate, adminAuth} = require('../middleware/authentication');
 const { registerUserValidator, loginValidator } = require('../middleware/validator');
 
 const router = express.Router();
+/**
+ * @swagger
+ * tags:
+ *   name: Onboarding
+ *   description: endpoints relating to onboarding a user
+ */
 
 /**
  * @swagger
  * /api/v1/admin/register:
  *   post:
  *     summary: Register a new admin
+ *     tags: [Onboarding]
  *     requestBody:
  *       required: true
  *       content:
@@ -83,6 +90,7 @@ router.post("/admin/register", registerUserValidator, registerAdmin)
  * /api/v1/admin:
  *   post:
  *     summary: Register an admin with authentication
+ *     tags: [Onboarding]
  *     requestBody:
  *       required: true
  *       content:
@@ -156,6 +164,7 @@ router.post("/admin",adminAuth, registerAdmin)
  * /api/v1/register:
  *   post:
  *     summary: Register a new user
+ *     tags: [Onboarding]
  *     requestBody:
  *       required: true
  *       content:
@@ -225,6 +234,7 @@ router.post('/register',registerUserValidator,registerUser);
  * /api/v1/login:
  *   post:
  *     summary: User login
+ *     tags: [Onboarding]
  *     requestBody:
  *       required: true
  *       content:
@@ -299,6 +309,7 @@ router.post('/login',loginValidator, loginUser);
  * /api/v1/verify/user/{token}:
  *   get:
  *     summary: Verify user account using a token
+ *     tags: [Onboarding]
  *     parameters:
  *       - name: token
  *         in: path
@@ -360,6 +371,7 @@ router.get('/verify/user/:token', verifyUser);
  * /api/v1/forgot_password/user:
  *   post:
  *     summary: Initiate password reset
+ *     tags: [Onboarding]
  *     requestBody:
  *       required: true
  *       content:
@@ -414,6 +426,7 @@ router.post('/forgot_password/user', forgotPassword);
  * /api/v1/reset_password/user/{token}:
  *   post:
  *     summary: Reset user password using a token
+ *     tags: [Onboarding]
  *     parameters:
  *       - name: token
  *         in: path
